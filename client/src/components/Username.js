@@ -2,53 +2,87 @@ import React from "react";
 import "../styles/Username.css";
 import { Link } from "react-router-dom";
 import avatar from "../assets/avatar.svg";
+import { Toaster } from "react-hot-toast";
+import { useFormik } from "formik";
+import { accountValidate } from "../helper/validate";
 
 export default function Username() {
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+    },
+    validate: accountValidate,
+    validateOnBlur: false,
+    validateOnChange: false,
+    onSubmit: async (values) => {
+      console.log(values);
+    },
+  });
+
   return (
-    <div className="wrapper">
-      <div className="form-box login">
-        <h2>Login</h2>
-        <img src={avatar} alt="" />
-        <form action="">
-          <div className="input-box">
-            <span className="icon">
-              <ion-icon name="mail-outline"></ion-icon>
-            </span>
-            <input type="email" required />
-            <label for="">email</label>
-          </div>
-          <div className="input-box">
-            <span className="icon">
-              <ion-icon name="lock-closed-outline"></ion-icon>
-            </span>
-            <input type="password" required />
-            <label for="">Password</label>
-          </div>
+    <>
+      {" "}
+      {/**toast notification */}
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          className: "",
+          style: {
+            color: "#fff",
+            background: "#333",
+          },
+        }}
+      ></Toaster>
+      <div className="wrapper">
+        <div className="form-box login">
+          <h2>Login</h2>
+          <img src={avatar} alt="" />
 
-          <div className="remember">
-            <label for="">
-              <input type="checkbox" />
-              Remember me
-            </label>
-            <Link className="forgotPassword" to="/password">
-              Forgot Password?
-            </Link>
-          </div>
+          {/**login data check */}
 
-          <button type="submit" className="btn">
-            Login
-          </button>
+          <form onSubmit={formik.handleSubmit}>
+            <div className="input-box">
+              <span className="icon">
+                <ion-icon name="mail-outline"></ion-icon>
+              </span>
+              <input {...formik.getFieldProps("username")} />
+              <label for="">username</label>
+            </div>
+            <div className="input-box">
+              <span className="icon">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+              </span>
+              <input {...formik.getFieldProps("password")} type="password" />
+              <label for="">Password</label>
+            </div>
 
-          <div className="login-register">
-            <p>
-              Don't have an account?{" "}
-              <Link to="/register" className="register-link">
-                Register
+            <div className="remember">
+              <label for="">
+                <input type="checkbox" />
+                Remember me
+              </label>
+              <Link className="forgotPassword" to="/password">
+                Forgot Password?
               </Link>
-            </p>
-          </div>
-        </form>
+            </div>
+
+            <button type="submit" className="btn">
+              Login
+            </button>
+
+            <div className="login-register">
+              <p>
+                Don't have an account?{" "}
+                <Link to="/register" className="register-link">
+                  Register
+                </Link>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
