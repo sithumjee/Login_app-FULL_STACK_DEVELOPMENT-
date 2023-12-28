@@ -35,6 +35,7 @@ export default function Username() {
           },
         }}
       ></Toaster>
+      {/** body*/}
       <div className="wrapper">
         <div className="form-box login">
           <h2>Login</h2>
@@ -63,7 +64,7 @@ export default function Username() {
                 <input type="checkbox" />
                 Remember me
               </label>
-              <Link className="forgotPassword" to="/password">
+              <Link className="forgotPassword" to="/recovery">
                 Forgot Password?
               </Link>
             </div>

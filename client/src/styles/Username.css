@@ -67,7 +67,7 @@ body {
   top: 50%;
   left: 5px;
   font-size: 1em;
-  color: #162938;
+  color: #06094e;
   font-weight: 500;
   pointer-events: none;
   transition: 0.5s;
@@ -85,7 +85,7 @@ body {
   border: none;
   outline: none;
   font-size: 1em;
-  color: #162938;
+  color: #000000;
   font-weight: 600;
   padding: 0 35px 0 5px;
 }
