@@ -5,6 +5,7 @@ import avatar from "../assets/avatar.svg";
 import { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
 import { accountValidate } from "../helper/validate";
+import { passwordValidate } from "../helper/validate";
 
 export default function Username() {
   const formik = useFormik({
@@ -12,6 +13,7 @@ export default function Username() {
       username: "",
       password: "",
     },
+    validate: passwordValidate,
     validate: accountValidate,
     validateOnBlur: false,
     validateOnChange: false,
