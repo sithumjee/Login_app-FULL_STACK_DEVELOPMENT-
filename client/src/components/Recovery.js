@@ -6,7 +6,7 @@ export default function Recovery() {
   return (
     <>
       {/** body*/}
-      <div className="wrapper">
+      <div className="section">
         <div className="form-box login">
           <h2>Recovery</h2>
           <p className="headerP">Enter the OTP to recover your account</p>
