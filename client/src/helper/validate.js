@@ -1,5 +1,7 @@
 import toast from "react-hot-toast";
 
+/**=============================================================================================================== */
+
 /**validate login page username and password */
 
 export async function accountValidate(values) {
@@ -7,33 +9,6 @@ export async function accountValidate(values) {
 
   return error;
 }
-
-export async function passwordValidate(values) {
-  const error = passwordVerify({}, values);
-
-  return error;
-}
-
-/** validate reset password*/
-
-export async function resetValidate(values) {
-  const error = passwordVerify({}, values);
-  if (values.password !== values.confPs) {
-    error.confPs = toast.error("Password does not match");
-  }
-  return error;
-}
-
-/**validate register */
-
-export async function registerValidate(values) {
-  const error = accountVerify({}, values);
-  passwordVerify(error, values);
-  emailVerify(error, values);
-  return error;
-}
-
-/**=================================================== */
 
 /**validate username and password */
 
@@ -59,7 +34,12 @@ function accountVerify(error = {}, values) {
   return error;
 }
 
-/**========================================================================================================================= */
+/**================================================================================================================================= */
+export async function passwordValidate(values) {
+  const error = passwordVerify({}, values);
+
+  return error;
+}
 
 function passwordVerify(error = {}, values) {
   const specialChars = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
@@ -77,7 +57,28 @@ function passwordVerify(error = {}, values) {
   return error;
 }
 
-/**================================================= */
+/**================================================================================================================================= */
+/** validate reset password*/
+
+export async function resetValidate(values) {
+  const error = passwordVerify({}, values);
+  if (values.password !== values.confPs) {
+    error.confPs = toast.error("Password does not match");
+  }
+  return error;
+}
+
+/**================================================================================================================================= */
+/**validate register */
+
+export async function registerValidate(values) {
+  const error = accountVerify({}, values);
+  passwordVerify(error, values);
+  emailVerify(error, values);
+  return error;
+}
+
+/**validate email */
 
 function emailVerify(error = {}, values) {
   const emailRegex = /\S+@\S+\.\S+/;
