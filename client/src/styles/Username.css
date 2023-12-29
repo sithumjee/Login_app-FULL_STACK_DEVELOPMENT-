@@ -164,3 +164,13 @@ body {
 input[type="file"] {
   display: none;
 }
+
+.profile_img img {
+  align-items: center;
+  margin-left: 110px;
+  margin-top: 20px;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border-radius: 50%;
+}
