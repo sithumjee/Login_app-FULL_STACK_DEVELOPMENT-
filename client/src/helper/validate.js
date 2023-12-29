@@ -1,5 +1,7 @@
 import toast from "react-hot-toast";
-
+const specialChars = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+const specialCharsSecond = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+const emailRegex = /\S+@\S+\.\S+/;
 /**=============================================================================================================== */
 
 /**validate login page username and password */
@@ -18,8 +20,6 @@ function accountVerify(error = {}, values) {
   } else if (values.username.includes(" ")) {
     error.username = toast.error("Username is invalid");
   }
-
-  const specialChars = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
   if (!values.password) {
     error.password = toast.error("Password is required");
@@ -42,8 +42,6 @@ export async function passwordValidate(values) {
 }
 
 function passwordVerify(error = {}, values) {
-  const specialChars = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-
   if (!values.password) {
     error.password = toast.error("Password is required");
   } else if (values.password.includes(" ")) {
@@ -81,7 +79,60 @@ export async function registerValidate(values) {
 /**validate email */
 
 function emailVerify(error = {}, values) {
-  const emailRegex = /\S+@\S+\.\S+/;
+  if (!values.email) {
+    error.email = toast.error("Email is required");
+  } else if (values.email.includes(" ")) {
+    error.email = toast.error("Email is invalid");
+  } else if (!emailRegex.test(values.email)) {
+    error.email = toast.error("Email is invalid");
+  }
+
+  return error;
+}
+
+/**============================================================================== */
+
+/**validate profile */
+
+export async function profileValidate(values) {
+  const error = profileVerify({}, values);
+
+  return error;
+}
+
+/**validate profile */
+
+function profileVerify(error = {}, values) {
+  if (!values.firstName) {
+    error.firstName = toast.error("FirstName is required");
+  } else if (specialCharsSecond.test(values.firstName)) {
+    error.firstName = toast.error(
+      "FirstName can't contain a special character"
+    );
+  }
+
+  if (!values.lastName) {
+    error.lastName = toast.error("LastName is required");
+  } else if (specialCharsSecond.test(values.lastName)) {
+    error.lastName = toast.error("LastName can't contain a special character");
+  }
+
+  if (!values.mobileNumber) {
+    error.mobileNumber = toast.error("MobileNumber is required");
+  } else if (values.mobileNumber.includes(" ")) {
+    error.mobileNumber = toast.error("MobileNumber is invalid");
+  } else if (
+    values.mobileNumber.length < 10 ||
+    values.mobileNumber.length > 10
+  ) {
+    error.mobileNumber = toast.error("MobileNumber is invalid");
+  }
+
+  if (!values.address) {
+    error.address = toast.error("Address is required");
+  } else if (specialChars.test(values.lastName)) {
+    error.lastName = toast.error("LastName can't contain a special character");
+  }
 
   if (!values.email) {
     error.email = toast.error("Email is required");

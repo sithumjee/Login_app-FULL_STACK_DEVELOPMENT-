@@ -1,0 +1,71 @@
+body {
+  padding-top: 40px;
+}
+
+.container {
+  position: relative;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: height 0.2s ease;
+}
+
+.container h2 {
+  font-size: 2em;
+  color: #090665;
+  text-align: center;
+  font-weight: bolder;
+}
+
+form {
+  width: 100%;
+  padding: 40px;
+  margin-top: 30px;
+}
+
+.headerP p {
+  font-size: 2em;
+  color: #090665;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.profile_img img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+.profile-data {
+  text-align: justify;
+}
+
+.profile-data input {
+  background-color: rgb(201, 218, 222);
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+input::placeholder {
+  color: #1e0b77; /* Set the desired color for the placeholder text */
+}
+
+input:focus::placeholder {
+  color: transparent;
+}

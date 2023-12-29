@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import avatar from "../assets/avatar.svg";
 import { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
-import { registerValidate } from "../helper/validate";
+import { profileValidate } from "../helper/validate";
 import convertBase64 from "../helper/convert";
 
 export default function Profile() {
@@ -12,11 +12,13 @@ export default function Profile() {
 
   const formik = useFormik({
     initialValues: {
-      username: "",
+      firstName: "",
+      lastName: "",
       email: "",
-      password: "",
+      mobileNumber: "",
+      address: "",
     },
-    validate: registerValidate,
+    validate: profileValidate,
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
@@ -50,9 +52,9 @@ export default function Profile() {
       {/** body*/}
       <div className="container">
         <div className="Upper-container">
-          <h2>Register</h2>
-          <p style={{ paddingLeft: "30px" }}>
-            Explore more by registering with us
+          <h2>Profile</h2>
+          <p style={{ textAlign: "center" }}>
+            Update your personal information
           </p>
           <label className="profile_img" htmlFor="profile">
             <img src={file || avatar} alt="avatar" />
@@ -65,9 +67,23 @@ export default function Profile() {
             <div className="profile-data">
               <div>
                 <input
-                  {...formik.getFieldProps("username")}
+                  {...formik.getFieldProps("firstName")}
                   type="text"
-                  placeholder="Username"
+                  placeholder="First Name"
+                />
+
+                <input
+                  {...formik.getFieldProps("lastName")}
+                  type="text"
+                  placeholder="Last Name"
+                />
+              </div>
+
+              <div>
+                <input
+                  {...formik.getFieldProps("mobileNumber")}
+                  type="number"
+                  placeholder="Mobile Number"
                 />
 
                 <input
@@ -79,42 +95,22 @@ export default function Profile() {
 
               <div>
                 <input
-                  {...formik.getFieldProps("username")}
+                  {...formik.getFieldProps("address")}
                   type="text"
-                  placeholder="Username"
-                />
-
-                <input
-                  {...formik.getFieldProps("email")}
-                  type="text"
-                  placeholder="Email"
-                />
-              </div>
-
-              <div>
-                <input
-                  {...formik.getFieldProps("username")}
-                  type="text"
-                  placeholder="Username"
-                />
-
-                <input
-                  {...formik.getFieldProps("email")}
-                  type="text"
-                  placeholder="Email"
+                  placeholder="Address"
                 />
               </div>
             </div>
 
             <button type="submit" className="btn">
-              Register
+              Update
             </button>
 
             <div className="login-register">
               <p>
-                Already registered?{" "}
+                Already Updated?{" "}
                 <Link to="/" className="register-link">
-                  login
+                  LogOut
                 </Link>
               </p>
             </div>
