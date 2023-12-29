@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import avatar from "../assets/avatar.svg";
 import { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
-import { accountValidate } from "../helper/validate";
 import { resetValidate } from "../helper/validate";
 
 export default function Reset() {

@@ -160,3 +160,7 @@ body {
   text-decoration: underline;
   opacity: 0.9;
 }
+
+input[type="file"] {
+  display: none;
+}
