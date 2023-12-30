@@ -37,7 +37,7 @@ export default function Username() {
         }}
       ></Toaster>
       {/** body*/}
-      <div className="wrapper">
+      <div className="wrapper" style={{ height: "500px" }}>
         <div className="form-box login">
           <h2>Login</h2>
           <img src={avatar} alt="" />

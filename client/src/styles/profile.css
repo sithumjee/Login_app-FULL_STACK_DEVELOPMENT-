@@ -14,6 +14,7 @@ body {
   align-items: center;
   overflow: hidden;
   transition: height 0.2s ease;
+  padding-top: 30px;
 }
 
 .container h2 {
@@ -25,8 +26,9 @@ body {
 
 form {
   width: 100%;
-  padding: 40px;
   margin-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .headerP p {

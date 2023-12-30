@@ -36,7 +36,7 @@ export default function Reset() {
         }}
       ></Toaster>
       {/** body*/}
-      <div className="wrapper">
+      <div className="wrapper" style={{ height: "400px" }}>
         <div className="form-box login">
           <h2>Reset</h2>
           <p style={{ fontSize: "14px", paddingLeft: "80px" }}>

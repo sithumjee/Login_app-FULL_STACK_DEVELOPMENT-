@@ -1,0 +1,50 @@
+.main-container {
+  position: relative;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex-direction: column;
+  transition: height 0.2s ease;
+  padding: 30px;
+}
+
+.main-container h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #692929;
+  text-align: center;
+}
+
+.main-container p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #0d126c;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.main-container h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0d126c;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.main-container a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #692929;
+  text-align: center;
+  text-decoration: none;
+  background-color: #9ea0c6;
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
