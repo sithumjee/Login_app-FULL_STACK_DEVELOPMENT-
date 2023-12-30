@@ -1,37 +1,25 @@
 import { Router } from "express";
 const router = Router();
 
+/**Import * controllers */
+import * as controller from "../controllers/appController.js";
+
 /**POST methods */
 
-router.route("/register").post((req, res) => {
-  //register user
-  res.json("register post request");
-});
-
-router.route("/registerMail").post((req, res) => {
-  //send the email to the user
-  res.json("registerMail post request");
-});
-
-router.route("/authenticate").post((req, res) => {
-  //authenticate the user
-  res.json("authenticate post request");
-});
-
-router.route("/login").post((req, res) => {
-  //login the user
-  res.json("login post request");
-});
+router.route("/register").post(controller.register); //register user
+router.route("/login").post(controller.login); //login user
+router.route("/registerMail").post(); //register user with mail
+router.route("/authenticate").post((req, res) => res.end()); //authenticate user
 
 /**GET methods */
-router.route("/user/:username").get(); //get the user by username
-router.route("/generateOTP").get(); //generate OTP
-router.route("/verifyOTP").get(); //verify OTP
-router.route("/createResetSession").get(); //create reset session
+router.route("/user/:username").get(controller.getUser); //get the user by username
+router.route("/generateOTP").get(controller.generateOTP); //generate OTP
+router.route("/verifyOTP").get(controller.verifyOTP); //verify OTP
+router.route("/createResetSession").get(controller.createResetSession); //create reset session
 
 /**PUT methods */
-router.route("/updateUser").put(); //update the user
-router.route("/resetPassword").put(); //reset the password
+router.route("/updateUser").put(controller.updateUser); //update the user
+router.route("/resetPassword").put(controller.resetPassword); //reset the password
 
 /**export router */
 export default router;
