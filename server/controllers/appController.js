@@ -1,8 +1,14 @@
+import userModel from "../model/user.model.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import ENV from "../config.js";
+
+/**============================================================= */
 /** POST:http://localhost:8080/api/register
  * @param:{
  * "username":"example123",
  * "password":"admin@123",
- * "email":"example@gmail.com"
+ * "email":"example@gmail.com",
  * firstName:"sithum",
  * lastName:"jeevantha"
  * mobile:"0711663875"}
@@ -12,13 +18,9 @@
  *
  */
 
-export async function register(req, res) {
-  //register user
-  res.json("register route");
-}
+export async function register(req, res) {}
 
 /**============================================================= */
-
 /** POST:http://localhost:8080/api/login
  * @param:{
  * "username":"example123",
@@ -26,9 +28,7 @@ export async function register(req, res) {
  * }
  */
 
-export async function login(req, res) {
-  res.json("login route");
-}
+export async function login(req, res) {}
 
 /**============================================================= */
 
